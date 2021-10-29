@@ -1,6 +1,6 @@
 from db import db
 from typing import List
-from flask_sqlalchemy import desc
+from sqlalchemy import desc
 
 
 class CompeticaoModel(db.Model):
