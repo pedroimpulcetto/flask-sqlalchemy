@@ -1,9 +1,9 @@
 from flask import Flask, Blueprint, jsonify
-from flask_restplus import Api
+from flask_restx import Api
 from ma import ma
 from db import db
 
-from resources.book import Book, BookList, book_ns
+from resources.competicao import Competicao, CompeticaoList, competicao_ns
 from marshmallow import ValidationError
 
 from server.instance import server
@@ -22,8 +22,8 @@ def handle_validation_error(error):
     return jsonify(error.messages), 400
 
 
-api.add_resource(Book, '/books/<int:id>')
-api.add_resource(BookList, '/books')
+api.add_resource(Competicao, '/competicao/<int:id>')
+api.add_resource(CompeticaoList, '/competicao')
 
 if __name__ == '__main__':
     db.init_app(app)
