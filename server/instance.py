@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-from flask_restplus import Api
+from flask_restx import Api
 from ma import ma
 from db import db
 
@@ -17,12 +17,12 @@ class Server():
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         self.app.config['PROPAGATE_EXCEPTIONS'] = True
 
-        self.book_ns = self.book_ns()
+        self.competicao_ns = self.competicao_ns()
 
         super().__init__()
 
-    def book_ns(self, ):
-        return self.api.namespace(name='Books', description='book related operations', path='/')
+    def competicao_ns(self, ):
+        return self.api.namespace(name='Competicao', description='competicao related operations', path='/')
 
     def run(self, ):
         self.app.run(
